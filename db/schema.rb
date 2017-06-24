@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623142328) do
+ActiveRecord::Schema.define(version: 20170624042116) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "restaurant_id"
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(version: 20170623142328) do
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating_sum", default: 0
+    t.float "avg_rating", default: 0.0
+    t.index ["avg_rating"], name: "index_restaurants_on_avg_rating"
   end
 
   create_table "users", force: :cascade do |t|
